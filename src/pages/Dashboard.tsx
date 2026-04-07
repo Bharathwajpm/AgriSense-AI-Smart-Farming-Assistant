@@ -2,6 +2,7 @@ import { useMemo } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Cloud, Thermometer, Droplets, Wind, TrendingUp, Sprout, AlertTriangle, DollarSign } from "lucide-react";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, BarChart, Bar } from "recharts";
+import heroImg from "@/assets/agri-hero.jpeg";
 
 const weatherData = { temp: 28, humidity: 72, wind: 12, condition: "Partly Cloudy", rain: "15% chance" };
 
@@ -43,17 +44,33 @@ export default function Dashboard() {
 
   return (
     <div className="space-y-6 animate-fade-in">
-      <div>
-        <h1 className="text-2xl font-bold text-foreground">Dashboard</h1>
-        <p className="text-muted-foreground text-sm">Welcome back, Farmer! Here's your farm overview.</p>
+      {/* Hero Banner */}
+      <div className="relative w-full rounded-2xl overflow-hidden shadow-lg">
+        <img src={heroImg} alt="Smart farming with AI" className="w-full h-48 sm:h-56 md:h-64 object-cover" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent flex flex-col justify-center px-6 md:px-10">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white drop-shadow-lg">
+            🌱 AI-Powered Smart Farming Assistant
+          </h1>
+          <p className="text-sm sm:text-base text-white/80 mt-2 max-w-xl">
+            Real-time insights for crop, weather, disease, and yield optimization
+          </p>
+          <div className="flex items-center gap-3 mt-4">
+            <span className="inline-flex items-center gap-1.5 text-xs font-medium bg-primary/90 text-primary-foreground px-3 py-1 rounded-full shadow-neon-sm">
+              <Sprout className="h-3 w-3" /> Live Monitoring
+            </span>
+            <span className="inline-flex items-center gap-1.5 text-xs font-medium bg-white/10 text-white border border-white/20 px-3 py-1 rounded-full backdrop-blur-sm">
+              <TrendingUp className="h-3 w-3" /> AI Predictions Active
+            </span>
+          </div>
+        </div>
       </div>
 
       {/* Stats */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         {stats.map((s) => (
-          <Card key={s.label} className="glass-card">
+          <Card key={s.label} className="glass-card hover:shadow-neon-sm transition-shadow duration-300">
             <CardContent className="p-4 flex items-start gap-3">
-              <div className="gradient-primary rounded-lg p-2">
+              <div className="gradient-primary rounded-lg p-2 shadow-neon-sm">
                 <s.icon className="h-4 w-4 text-primary-foreground" />
               </div>
               <div>
