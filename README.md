@@ -4,9 +4,8 @@
 
 ---
 
-## 🌐 Live Demo
-
-🚀 Try the project here: 👉 agri-sense-ai-smart-farming-assista.vercel.app
+## 🌐 Live Demo  
+🚀 Try the project here: 👉 https://agri-sense-ai-smart-farming-assista.vercel.app
 
 ---
 
